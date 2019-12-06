@@ -20,3 +20,4 @@ logging:
 mybatis-plus:
   mapper-locations:
     - mapper/*
+  type-aliases-package: com.cesar.*.entity
