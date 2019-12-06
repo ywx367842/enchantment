@@ -40,7 +40,7 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
-        <!--service模块 引入entity模块-->
+        <!--do模块 引入entity模块-->
         <dependency>
             <groupId>com.cesar</groupId>
             <artifactId>entity</artifactId>
