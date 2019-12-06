@@ -1,0 +1,22 @@
+
+server:
+  port: 8080
+#-----------------------------------数据库配置----------------------------------------
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatisplus?useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+
+
+logging:
+  level:
+    root: info
+    com.cesar.dao: trace
+#  pattern:
+#    console: '%p%m%n'
+
+mybatis-plus:
+  mapper-locations:
+    - mapper/*
