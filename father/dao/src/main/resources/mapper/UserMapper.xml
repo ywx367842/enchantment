@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 配置dao接口路径-->
+<mapper namespace="com.cesar.dao.UserMapper">
+    <select id="selectAll" resultType="com.cesar.entity.User">
+        select * from t_user ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectMyList" resultType="com.cesar.entity.User">
+        select * from t_user
+        where 1=1
+        <if test="name!=null and name!=''">
+            AND name = #{name}
+        </if>
+        <if test="age!=null and age!=''">
+            AND age &lt;= #{age}
+        </if>
+    </select>
+
+    <select id="selectUserPage" resultType="com.cesar.entity.User">
+        select * from t_user ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectUserPage2" resultType="com.cesar.entity.User">
+        select * from t_user
+        where 1=1
+        <if test="param.name!=null and param.name!=''">
+            AND name = #{param.name}
+        </if>
+        <if test="param.age!=null and param.age!=''">
+            AND age &lt;= #{param.age}
+        </if>
+    </select>
+
+    <select id="selectUserPage3" resultType="com.cesar.entity.User">
+        select * from t_user
+        where 1=1
+        <if test="param.name!=null and param.name!=''">
+            AND name = #{param.name}
+        </if>
+        <if test="param.age!=null and param.age!=''">
+            AND age &lt;= #{param.age}
+        </if>
+    </select>
+</mapper>

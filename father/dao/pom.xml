@@ -27,18 +27,7 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-        <!--Mybatis-Plus启动器-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <!--<version>3.0.7.1</version>-->
-            <version>3.1.0</version>
-        </dependency>
-        <!--Mysql jdbc驱动-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-        </dependency>
+
 
         <!--do模块 引入entity模块-->
         <dependency>
