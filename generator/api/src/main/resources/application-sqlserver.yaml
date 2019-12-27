@@ -1,0 +1,22 @@
+server:
+  port: 8080
+#-----------------------------------数据库配置----------------------------------------
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://58.210.98.36:31433;databaseName=HNA_BIM_DEV
+    username: sa
+    password: YZ-it418
+
+
+logging:
+  level:
+    root: info
+    com.cesar.core: trace
+#  pattern:
+#    console: '%p%m%n'
+
+mybatis-plus:
+  mapper-locations:
+    - mapper/*
+  type-aliases-package: com.cesar.core.*.entity

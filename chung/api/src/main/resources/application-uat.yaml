@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /chung
+#-----------------------------------数据库配置----------------------------------------
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://172.16.2.51:1433;databaseName=ChongBang_BI_DW
+    username: sa
+    password: Bidw@2019
+
+
+logging:
+  level:
+    root: info
+    com.movitech.core: trace
+#  pattern:
+#    console: '%p%m%n'
+
+mybatis-plus:
+  mapper-locations:
+    - mapper/*
+  type-aliases-package: com.movitech.core.*.entity
+
+generator:
+  diskPath: D:\\temp\\java\\core\\
+  diskPathController: D:\\temp\\java\\api\\
+  diskPathMapper: D:\\temp\\resources\\mapper\\
+#  diskPath: D:\\myStudy\\enchant\\enchantment\\chung\\core\\src\\main\\java\\com\\movitech\\core\\
+#  diskPathController: D:\\myStudy\\enchant\\enchantment\\chung\\api\\src\\main\\java\\com\\movitech\\api\\
+#  diskPathMapper: D:\\myStudy\\enchant\\enchantment\\chung\\core\\src\\main\\resources\\mapper\\
+  tableName: HNA_BIM_DEV
+  packageName: com.movitech.core
+  packageNameController: com.movitech.api
+  tableAnnotation: 表注解
+  author: Cesar.Yuan
+  sql: select * from dim_java_connector where f1 = 0  and interface_name in( 'getPublicImpProjectList','getCpglProjectDesignCostA')
+#diskPath=E:\\work\\HNA\\cockpit_dev\\cockpit\\src\\main\\java\\
+#diskPathMapper=E:\\work\\HNA\\cockpit_dev\\cockpit\\src\\main\\resources\\mapper\\
+
+#packageName = com.movitech.inception.platform
+#sql=select  * from dim_java_connector where id =102
+
+
+

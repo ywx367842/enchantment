@@ -1,4 +1,4 @@
-package com.cesar.api.common;
+package com.cesar.api.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

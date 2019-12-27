@@ -10,9 +10,9 @@
     </parent>
 
     <groupId>com.cesar</groupId>
-    <artifactId>myPro</artifactId>
+    <artifactId>generator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>myPro</name>
+    <name>generator</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
@@ -23,7 +23,7 @@
         <swagger.version>2.5.0</swagger.version>
     </properties>
 
-    <!--声明你有两个儿子 -->
+    <!--声明你有四个儿子 -->
     <modules>
         <module>api</module>
         <module>core</module>

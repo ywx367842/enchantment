@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 配置dao接口路径-->
+<mapper namespace="com.cesar.core.test.mapper.PublicImpProjectListDao">
+
+    <!--</公用-重点项目选择>-->
+    <select id="getPublicImpProjectList" resultType="com.cesar.core.test.entity.PublicImpProjectList" parameterType="java.util.Map">
+            
+
+SELECT DISTINCT
+      project_code AS project_code        --项目编码#
+      ,project_name  AS  project_name      --项目名称#
+      ,short_project_name AS short_project_name  --项目短名称#
+	  ,hj_project_name AS hj_project_name
+  FROM dim_v_org_imp
+  WHERE Year_code =#{yearCode} and Month_code =#{monthCode} AND area_code =#{areaCode}
+
+
+    </select>
+
+</mapper>
+
+
+
