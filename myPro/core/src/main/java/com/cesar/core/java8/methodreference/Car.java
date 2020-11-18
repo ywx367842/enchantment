@@ -2,19 +2,21 @@ package com.cesar.core.java8.methodreference;
 
 import lombok.Data;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Supplier;
 
 @Data
 class Car {
 
     private String name;
 //    @FunctionalInterface
-    public interface Supplier<T> {
-        T get();
-    }
+//    public interface Supplier<T> {
+//        T get();
+//    }
 
     public Car() {
     }
@@ -38,9 +40,20 @@ class Car {
 
     public static void main(String[] args) {
 //        Runnable aNew = Car::new;
-        Supplier<Car> aNew = Car::new;
+
+//        Supplier<Car> aNew = new Supplier<Car>() {
+//            @Override
+//            public Car get() {
+//                return new Car();
+//            }
+//        };
+
+        Supplier<Car> aNew = ()->new Car();
+
+//        Supplier<Car> aNew = Car::new;
+
         //构造器引用：它的语法是Class::new，或者更一般的Class< T >::new实例如下：
-        Car car = Car.create(Car::new);
+        Car car = Car.create(aNew);
         car.setName("car");
         Car car1 = Car.create(Car::new);
         car1.setName("car1");

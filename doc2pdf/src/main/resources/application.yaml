@@ -1,0 +1,6 @@
+server:
+  port: 8089
+
+jacob:
+  cmsServerUrl: http://172.20.55.26:8089/jod/upload
+  localStorePath: D:\ztemp\file\docserver\

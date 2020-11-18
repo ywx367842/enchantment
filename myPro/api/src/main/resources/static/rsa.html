@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>使用jsencrypt执行OpenSSL的RSA加密，解密</title>
+    </head>
+    <!--引入jsencrypt.js-->
+    <!--<script src="https://cdn.bootcss.com/jsencrypt/3.0.0-beta.1/jsencrypt.js"></script>-->
+    <script src="./js/jsencrypt.js"></script>
+    <script type="text/javascript">
+        var timestamp = (new Date()).valueOf();
+        console.log("当前时间戳："+timestamp);
+        //公钥
+        var PUBLIC_KEY = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDAkBPqPKUVeFRlYWw86MeuQMBLCWrFJr5rtEKs30CsJXZx+e7lEQUyUN/zCr9DoWRrCwiKCkgciiaXHxBXgTaX5tb9WJ8Ea4rkoRqnssFNn5cPOMLlUThIkvQ/XHJLaWq9lvgV8WAGV4FaoGvB5olFuz3SI3v0WZoRn32fCCtpQIDAQAB';
+        //私钥
+        var PRIVATE_KEY = 'MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAIMCQE+o8pRV4VGVhbDzox65AwEsJasUmvmu0QqzfQKwldnH57uURBTJQ3/MKv0OhZGsLCIoKSByKJpcfEFeBNpfm1v1YnwRriuShGqeywU2flw84wuVROEiS9D9ccktpar2W+BXxYAZXgVqga8HmiUW7PdIje/RZmhGffZ8IK2lAgMBAAECgYAWzoCFnaLFQgIcoswIVxGxmoG0ZYwVMVwdVVqc40xC+JzNsehcll4XxEXU7KUbMrj7+B4iwB0Qwe7hmHIlKwnq/m7byqSESY2J7YFcEn88qJ20wYR+ANgR4Oh/Q/s6ccvVwuyCUywGtI2N6QRfYDWH4ACt+1DNIz2PbCqhhrJmLQJBALnNg27bl5ZUvgDWcMNEuRukHVwyS1K0oXHc1n6BYWAFNTzubWMwhf+rJ99n51V1aPNJ2JxvBe3c3iBkwmkarvcCQQC0gSstasGcZ7Akk9g/exjWHY1zuU+REun5kwh8mCsEWQxb4CvPcD99TArJ8cN24r3a4R4WzENCl9zoaf0XwnVDAkEAlp3YO5da7IxJcdhjlIczHwsMmd5TXPn8HZcNcYNj8jiGjZwhpFSDa1vNeLZ7urTwnLdyFm2Ret6eWdgUGKt+xQJBAKG+1Vf/P7rNVxOPv8kynxDOroAyX9AZ6LuRO5uaJ4Hf4ak6eUeKx/mY+Fn5YDPZ/lJyQyoeo2668mL5BqgRwk0CQCvDYb+0z47bA9OowV14Aikn7djRtbOMbG5q9DTa3ADsqHZ+Zuh597t8cFwkVAWOTnLASfoXB1mcB7XZJniXI6g=';
+        //使用公钥加密
+        var encrypt = new JSEncrypt();
+		  //encrypt.setPrivateKey('-----BEGIN RSA PRIVATE KEY-----'+PRIVATE_KEY+'-----END RSA PRIVATE KEY-----');
+        encrypt.setPublicKey('-----BEGIN PUBLIC KEY-----' + PUBLIC_KEY + '-----END PUBLIC KEY-----');
+        var encrypted = encrypt.encrypt(timestamp+'|test01');
+        console.log('加密后数据:%o', encrypted);
+        //使用私钥解密
+        var decrypt = new JSEncrypt();
+		//decrypt.setPublicKey('-----BEGIN PUBLIC KEY-----' + PUBLIC_KEY + '-----END PUBLIC KEY-----');
+        decrypt.setPrivateKey('-----BEGIN RSA PRIVATE KEY-----'+PRIVATE_KEY+'-----END RSA PRIVATE KEY-----');
+        var uncrypted = decrypt.decrypt(encrypted);
+        console.log('解密后数据:%o', uncrypted);
+    </script>
+ 
+</html>

@@ -1,8 +1,7 @@
-package com.cesar.core.entity;
+package com.cesar.mphigh.user.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 
@@ -16,12 +15,12 @@ import java.util.Date;
  * @Version V1.0
  **/
 @Data
-@TableName("t_user")
+//@TableName("t_user")
 //@EqualsAndHashCode(callSuper = false)
 public class User extends Model<User> {
 
     //主键
-    @TableId(type = IdType.ID_WORKER_STR)
+    @TableId(type= IdType.ID_WORKER_STR)
     private String id;
     //姓名
 //    @TableField(condition = SqlCondition.LIKE)

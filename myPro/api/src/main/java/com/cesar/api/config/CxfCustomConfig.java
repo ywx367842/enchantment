@@ -1,3 +1,4 @@
+/*
 
 package com.cesar.api.config;
 
@@ -18,12 +19,15 @@ public class CxfCustomConfig {
 //        return new ServletRegistrationBean(new CXFServlet(), "/soap/*");
 //    }
 
-    /**
+    */
+/**
      * 添加普通的controller处理
      *
      * @return
-     */
-    /*@Bean
+     *//*
+
+    */
+/*@Bean
     public ServletRegistrationBean dispatcherRestServlet() {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         //替换成自己的controller包路径
@@ -35,8 +39,10 @@ public class CxfCustomConfig {
         registrationBean.addUrlMappings("/*");
         registrationBean.setName("rest");
         return registrationBean;
-    }*/
-    /*@Bean(name = "multipartResolver")
+    }*//*
+
+    */
+/*@Bean(name = "multipartResolver")
     public CommonsMultipartResolver getCommonsMultipartResolver() {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
         multipartResolver.setDefaultEncoding("UTF-8");
@@ -46,7 +52,8 @@ public class CxfCustomConfig {
         multipartResolver.setMaxUploadSize(104857600);//104857600等于100M
         multipartResolver.setMaxInMemorySize(4096);
         return multipartResolver;
-    }*/
+    }*//*
+
 
 //    @Autowired
 //    private Bus bus;
@@ -71,3 +78,4 @@ public class CxfCustomConfig {
     }
 
 }
+*/

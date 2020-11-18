@@ -1,6 +1,6 @@
 
 server:
-  port: 8080
+  port: 8089
 #-----------------------------------数据库配置----------------------------------------
 spring:
   datasource:
@@ -13,11 +13,13 @@ spring:
 logging:
   level:
     root: info
-    com.cesar.core.dao: trace
+    com.cesar.core: trace
 #  pattern:
 #    console: '%p%m%n'
 
 mybatis-plus:
-  mapper-locations:
-    - mapper/*
-  type-aliases-package: com.cesar.*.entity
+  type-aliases-package: com.cesar.core.*.entity
+
+jacob:
+  cmsServerUrl: http://172.20.55.26:8089/jod/upload
+  localStorePath: D:\ztemp\file\docserver\
