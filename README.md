@@ -10,3 +10,7 @@ myPro： cms项目小工具收集
 redis、 webservice、 多数据源、swagger2、加解密、 word转pdf及加水印、ChineseCharacterHelper、
 
 在线编辑word（ntko和pageOffice）、SFTPUtils、 
+
+
+官方文档：
+mybatis-plus: https://baomidou.com/guide/#%E7%89%B9%E6%80%A7
