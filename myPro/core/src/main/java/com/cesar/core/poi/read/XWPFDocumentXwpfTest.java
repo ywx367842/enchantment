@@ -7,6 +7,7 @@ import org.apache.poi.xwpf.usermodel.*;
 import org.junit.Test;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblWidth;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTcPr;
+import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
 import java.io.FileInputStream;
@@ -18,28 +19,21 @@ import java.util.List;
 
 public class XWPFDocumentXwpfTest {
 
+    public static void main(String[] args) throws Exception {
+        XWPFDocumentXwpfTest test = new XWPFDocumentXwpfTest();
+        test.testReadDoc();
+    }
     /**
      * 通过XWPFDocument对内容进行访问。对于XWPF文档而言，用这种方式进行读操作更佳。
      *
      * @throws Exception
      */
-    @Test
     public void testReadDoc() throws Exception {
         FileInputStream is = new FileInputStream("D:\\test\\word\\write.docx");
         XWPFDocument doc = new XWPFDocument(is);
 
-        Word word = new Word();
-
-
         List<XWPFParagraph> paras = doc.getParagraphs();
-//        List<XWPFParagraph> paras = new ArrayList<>();
 
-        Div div = new Div();
-        List<Paragraph> list = new ArrayList<>();
-        div.setParagraphs(list);
-
-        List<Div> words = new ArrayList<>();
-        words.add(div);
 
         /*for (int i = 0; i < paras.size(); i++) {
             XWPFParagraph paragraph = paras.get(i);
@@ -111,28 +105,32 @@ public class XWPFDocumentXwpfTest {
                 continue;
             }
 
-            builder.append("<div>");
-
 
             String style = paragraph.getStyle();
 //            String styleId = paragraph.getStyleID();
-            System.out.println("第" + i + "段落:" + style + " : " + style);
-            System.out.println(paragraph.getText());
+            System.out.println("第" + i + "段落:" + style + " : " + text);
+
+//            paragraph.get
+            int firstLineIndent = paragraph.getIndentationFirstLine();
+            int fontSize = 12;
             List<XWPFRun> runs = paragraph.getRuns();
-            for (XWPFRun run : runs) {
-                System.out.println(run.getText(0));
+            if (!CollectionUtils.isEmpty(runs)) {
+                XWPFRun xwpfRun = runs.get(0);
+                fontSize = xwpfRun.getFontSize();
             }
 
-            if ("79".equals(style) || "2".equals(style) || "3".equals(style) || "4".equals(style)) {
-                div = new Div();
-                list = new ArrayList<>();
-                div.setParagraphs(list);
-                words.add(div);
-            }
+            ParagraphAlignment alignment = paragraph.getAlignment();
+            int value = alignment.getValue();
 
+            //转换成空格数量
+            float spaceNum = firstLineIndent / 240f;
+            int round = Math.round(spaceNum);
 
-            builder.append(text);
-            builder.append("</div>\r\n");
+            System.out.println(firstLineIndent);
+            System.out.println(round);
+            System.out.println(fontSize);
+            System.out.println(alignment);
+            System.out.println(value);
 
 
         }

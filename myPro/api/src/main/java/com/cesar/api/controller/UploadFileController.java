@@ -99,7 +99,7 @@ public class UploadFileController {
         // 文件的大小
         fileStatus.setFileSize(file.length());
         // 文件的类型
-        fileStatus.setFileType("pdf");
+        fileStatus.setFileType("static/pdf");
         try {
             fileStatus.setInputStream(new FileInputStream(new File(path + filename + ".pdf")));
         } catch (FileNotFoundException e) {
