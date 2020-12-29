@@ -1,5 +1,19 @@
 官方文档地址： <https://baomidou.com/guide/generator.html>
 
+使用流程：
+1添加依赖
+<dependency>
+    <groupId>com.baomidou</groupId>
+    <artifactId>mybatis-plus-generator</artifactId>
+    <version>3.4.1</version>
+</dependency>        
+2 添加引擎依赖
+<dependency>
+    <groupId>org.freemarker</groupId>
+    <artifactId>freemarker</artifactId>
+    <version>2.3.30</version>
+</dependency>
+3编写配置
 
 
 遇到问题记录：
