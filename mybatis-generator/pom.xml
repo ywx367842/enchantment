@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>com.cesar</groupId>
-    <artifactId>blank</artifactId>
+    <artifactId>mybatis-generator</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>blank</name>
     <packaging>pom</packaging>
